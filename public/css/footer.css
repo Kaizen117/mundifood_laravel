@@ -1,0 +1,21 @@
+#text{
+    padding-top: 20px;
+}
+
+#footer{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+i{
+    width: 20px;
+    height: 20px;
+}
+
+h6{
+    font-weight: bold;
+
+}
+
+#company{
+    font-size: 24px;
+}
