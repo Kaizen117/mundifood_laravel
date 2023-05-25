@@ -15,10 +15,13 @@ class CreateTablesTable extends Migration
     {
         Schema::create('tables', function (Blueprint $table) {
             $table->engine = "InnoDB";
-            $table->increments('id')->unsigned();
+            //$table->increments('id')->unsigned();
+            $table->unsignedBigInteger('id')->autoIncrement();
+            $table->unsignedInteger('table_number')->unique();
             $table->tinyInteger('diner_number')->unsigned();
             $table->string('place', 15);
             $table->timestamps();
+            //$table->softDeletes();
         });
     }
 

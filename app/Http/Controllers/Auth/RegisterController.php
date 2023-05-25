@@ -57,7 +57,7 @@ class RegisterController extends Controller
             'telephone' => 'required|string|min:9|max:9|unique:users',
             'address' => 'required|string|max:150',            
             'email' => 'required|string|email|max:50|unique:users',
-            'username' => 'required|string|max:30',
+            'username' => 'required|string|max:30|unique:users',
             'password' => 'required|string|min:6|max:255|confirmed',
         ]);
     }
@@ -82,12 +82,12 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'type' => 'users',
             'activated' => false,
-            'remember_token' => str_random(10),
+            'remember_token' => str_random(20),
         ]);
     }
 
     public function register(Request $request)
-    {
+    {//metodo que sobreescribe al registro para que cuando se registre un nuevo user no haga auto login
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
         return $this->registered($request, $user)

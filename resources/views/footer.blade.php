@@ -1,7 +1,7 @@
-<head> <link rel="stylesheet" href={{ asset('css/footer.css')}}> </head>
+<head> <link rel="stylesheet" href="{{ asset('css/footer.css')}}"> </head>
 
 <section class="pb-4">
-  <div class="bg-white border rounded-5">
+  <div id="end" class="bg-white border rounded-5">
     
     <section class="p-4">
       <!-- Footer -->
@@ -63,16 +63,16 @@
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                  Products
+                  Off-topic
                 </h6>
                 <p>
-                  <a href="#!" class="text-reset">Angular</a>
+                  <a href="#!" class="text-reset">Política de privacidad</a>
                 </p>
                 <p>
-                  <a href="#!" class="text-reset">React</a>
+                  <a href="#!" class="text-reset">Política de cookies</a>
                 </p>
                 <p>
-                  <a href="#!" class="text-reset">Vue</a>
+                  <a href="#!" class="text-reset">Condiciones de uso</a>
                 </p>              
               </div>
               <!-- Grid column -->
@@ -83,8 +83,11 @@
                 <h6 class="text-uppercase fw-bold mb-4">
                   Sobre nosotros
                 </h6>
-                <p>
+                 <p>
                   <a href="/menu" class="text-reset">Nuestra carta</a>
+                </p>
+                <p>
+                  <a href="/news" class="text-reset">Novedades y noticias</a>
                 </p>
                 <p>
                   <a href="/who" class="text-reset">Quiénes somos</a>
@@ -118,7 +121,7 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.15);">
           © 2023 Copyright:
           <a class="text-reset fw-bold" href="/">Mundifood.com</a>
         </div>

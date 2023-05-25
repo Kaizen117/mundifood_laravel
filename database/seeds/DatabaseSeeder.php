@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(mundifood\User::class)->create(['email'=>'admin@admin.com', 'type'=>'admin']);
-        factory(mundifood\User::class, 10)->create();
+        factory(App\User::class)->create(['email'=>'admin@admin.com', 'type'=>'admin']);
+        factory(App\User::class, 10)->create();
     }
 }

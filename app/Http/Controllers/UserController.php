@@ -15,20 +15,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $type1 = ['type' => 'users'];
-        $type2 = ['type' => 'waiters'];
-        
-        $users=User::where($type1)->orWhere($type2)->latest()->paginate(10);
-        $autentificado=Auth::user();       
-        if($autentificado==null) {//si no hay un user logeado reidirigo a login        
-            return view('/auth/login');
-        }else{                     
-            //extraigo de la variable el valor admin y como es true, en una consulta muestro todos los usuarios con el type=users/waiters y lo envio a la vista
-            $admin=$autentificado->type=='admin';
-            if($admin){               
-                return view('users.index', compact('users'));
-            }
-        }
+        //
     }
 
     /**
@@ -72,9 +59,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        //return View::make('users.edit')->with('user', $user);
         return view('users.edit', compact('user'));
-        //return view('users.edit',compact('user','companies'));
     }
 
     /**
@@ -113,37 +98,6 @@ class UserController extends Controller
         //
     }
 
-    public function sendEmail(Request $request){               
-        //dd($request);     //recupera todo lo que necesito
-        $marcados=$request->input('marcado');        
-        //dd($marcados);    //devuelve correctamente los checkboxes marcados
-        $elProducto=$request->input('products');
-        //dd($elProducto);  //producto devuelve correctamente el nombre asignado del id
-        $elAsunto=$request->input('asunto');
-        //dd($elAsunto);    //devuelve correctamente el titulo
-        $elContenido=$request->input('contenido');
-        //dd($elContenido); //devuelve correctamente el contenido introducido
-
-        foreach($marcados as $marcado){            
-            $data = [
-                'emailto' => $marcado,
-                'subject' => $elAsunto,
-                'product' => $elProducto,
-                'content' => $elContenido
-            ];
-            //dd($data); //primera iteracion 16, luego 17. El resto de campos son constantes
-            Mail::send('vistaEmail', $data, function ($message) use($data) {
-                $message->from(env('MAIL_USERNAME'));  //recupero el correo del fichero env para evitar errores
-                //dd(env('MAIL_USERNAME')); //devuelve mi correo real
-                //dd($data); //datos correctos.
-                $message->to($data['emailto'])->subject($data['subject']);
-                //segun stackoverflow da error en el to('') al pasarle una variable
-                //al parecer no habia refrescado la web y algo no pillaba del array, pero ya envia a cada destinatario real.
-            });
-        }   
-        return back();       
-    }
-
     public function work(){
         return view('users.work');
     }
@@ -154,6 +108,10 @@ class UserController extends Controller
 
     public function faqs(){
         return view('users.faqs');
+    }
+
+    public function news(){
+        return view('users.news');
     }
     
     public function success(){

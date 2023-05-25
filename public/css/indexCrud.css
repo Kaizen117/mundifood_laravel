@@ -1,0 +1,69 @@
+h1{
+    background-color: lightgreen;
+    color: #dd3636 !important;
+    font-weight: bold !important;
+    text-decoration: underline;
+    padding: 10px;
+}
+
+#contPages{
+    float: right;
+}
+
+#cant{
+    font-weight: bold;
+}
+
+input{
+    border: none;
+}
+
+.form-control{
+    border: 2px solid lightblue !important;
+    color: blue !important;
+}
+
+h4{
+    background-color: lightgreen;
+    color: white !important;
+    font-weight: bold !important;
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;    
+}
+
+td{
+    /*
+    display: block;
+    margin: 10px auto;
+    width: 62%;    
+    */
+
+    margin: 0 auto;
+    vertical-align: middle !important;
+    
+}
+
+#editar{
+    width: 95%;
+    margin: 5px 0;
+    float: right;
+}
+
+#eliminar{
+    width: 95%;
+    margin: 5px 0;
+    float: right;
+}
+
+#send{
+    background-color: lightgreen;
+    font-size: 15px;    
+    font-weight: bold;
+}
+#send:hover{
+    background-color: lightblue;
+}
+
+    

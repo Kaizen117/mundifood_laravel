@@ -4,6 +4,7 @@
 
 #footer{
     background-color: rgba(0, 0, 0, 0.05);
+    color: white;
 }
 
 i{
@@ -13,9 +14,13 @@ i{
 
 h6{
     font-weight: bold;
-
 }
 
 #company{
-    font-size: 24px;
+    font-size: 24px;    
+}
+
+#end{
+    background-color: rgb(197, 27, 27);
+    font-weight: bold;
 }

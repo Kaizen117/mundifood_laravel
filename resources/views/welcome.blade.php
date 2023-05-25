@@ -6,63 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Mundifood</title>
+        
+        <link rel="stylesheet" href="{{ asset('css/welcome.css')}}">
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">       
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -82,16 +30,45 @@
                     Mundif00d
                 </div>
                 <div class="subtitle m-b-md">
-                    <p style="font-size: 20px;">¡Cómete el mundo!</p>
+                    <p id="subtitle">¡Cómete el mundo!<br/>
+                    <img id="logo" src="/images/logo.jpg" alt="logo"></p>
                 </div>
-                <div class="links">
-                   
-                    <a href="/menu">Nuestra Carta</a>                   
+                                
+                <div class="gallery">
+                    <a href="#">
+                        <img class="card" src="/images/japan.jpg" alt="Japón">
+                    </a>
+                    <div class="desc">Japón</div>
+                </div>
+
+                <div class="gallery">
+                    <a href="#">
+                        <img class="card" src="/images/spain.jpg" alt="España">
+                    </a>
+                    <div class="desc">España</div>
+                </div>
+
+                <div class="gallery">
+                    <a href="#">
+                        <img class="card" src="/images/rusia.jpg" alt="Rusia">
+                    </a>
+                    <div class="desc">Rusia</div>
+                </div>
+
+                <div class="gallery">
+                    <a href="#">
+                        <img class="card" src="/images/uk.jpg" alt="Reino Unido">
+                    </a>
+                    <div class="desc">Inglaterra</div>
+                </div>
+
+                <div class="links">                   
+                    <a href="/menu">Nuestra Carta</a>
+                    <a href="/news">Novedades y noticias</a>
                     <a href="/who">Quiénes somos</a>
                     <a href="/work">Trabaja con nosotros</a>
                     <a href="/FAQS">Preguntas y respuestas frecuentes</a>
-                </div>
-                
+                </div>                
             </div>
         </div>
     </body>

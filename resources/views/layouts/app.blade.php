@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color:rgb(197, 27, 27);">
             <div class="container">
                 <div class="navbar-header">
 
@@ -29,38 +29,39 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}" style="background-color:rgb(197, 27, 27); color: white;">
                         {{ config('app.name', 'Mundifood') }}
                     </a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <div class="collapse navbar-collapse" id="app-navbar-collapse" style="background-color:rgb(197, 27, 27)">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right" style="color: white; font-weight: bold;">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
-                            <li><a href="{{ route('register') }}">Registro</a></li>
+                            <li><a style="color: white;" href="{{ route('login') }}">Iniciar sesión</a></li>
+                            <li><a style="color: white;" href="{{ route('register') }}">Registro</a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                <a style="background-color: rgb(197, 27, 27); color: white;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu">                               
-                                    <li>
-                                        <a href="{{ url('/profile') }}">
+                                <ul class="dropdown-menu" style="background-color: rgb(200, 69, 69);">                               
+                                    <!--<li>
+                                        <a style="color: white; font-weight: bold;" href="{{ url('/profile') }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                                             </svg> Mi perfil
                                         </a>
+                                    </li>-->
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a style="color: white; font-weight: bold;" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">

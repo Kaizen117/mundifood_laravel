@@ -8,14 +8,15 @@
         "php": ">=7.0.0",
         "barryvdh/laravel-debugbar": "~2.4",
         "barryvdh/laravel-dompdf": "^0.9.0",
-        "barryvdh/laravel-snappy": "^0.4.8",
         "blade-ui-kit/blade-icons": "^0.3.4",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/passport": "~4.0",
         "laravel/tinker": "~1.0",
         "lcobucci/jwt": "3.3.3",
-        "paragonie/random_compat": "2.*"
+        "nesbot/carbon": "^1.39",
+        "paragonie/random_compat": "2.*",
+        "swiftmailer/swiftmailer": "^6.3"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

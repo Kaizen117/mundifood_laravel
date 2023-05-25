@@ -11,10 +11,18 @@
                     </div>
                 @else
                     <div class="alert alert-success">
-                        Por favor verifique su email al correo que nos ha proporcionado.
+                        ¡Exito! ¡Esperamos que disfrutes tu estancia tanto como tus próximos pedidos de comida!
                     </div>
-                @endauth                    
-                <div class="panel-body">                                    
+                @endauth
+                <div class="panel-body">
+                    ¡Gracias por tu registro! Descarga nuestra app desde nuestros gestores oficiales de Apple Store y Google Play, ¡podrás usarla directamente sin necesidad de volver a registrarte!
+                    <p><br/>Otros enlaces de interes: </p>
+                    <ul>
+                        <li><p><a href="/menu">Nuestra carta</a></p></li>
+                        <li><p><a href="/news">Novedades y notícias</a></p></li>
+                    </ul>
+                    
+                    
                     <a href="/">Ir a la página de bienvenida</a>
                 </div>
             </div>

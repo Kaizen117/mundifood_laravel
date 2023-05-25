@@ -15,8 +15,8 @@ class CreateDishesTable extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->engine = "InnoDB";
-            $table->increments('id')->unsigned();
-            $table->string('name', 30);
+            $table->unsignedBigInteger('id')->autoIncrement();
+            $table->string('name', 50);
             $table->string('image', 255);
             $table->decimal('price', 5, 2);
             $table->text('description', 100);
