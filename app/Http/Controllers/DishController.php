@@ -85,7 +85,7 @@ class DishController extends Controller
         
         $dish=Dish::create($requestData);
 
-        return redirect('/dishes')->with('success', 'Plato "' . $dish->name . '" creado satisfactoriamente por ' . auth()->user()->type . '.');
+        return redirect('/dishes')->with('success', $dish->name . ' creado satisfactoriamente por ' . auth()->user()->type . '.');
     }
     
 
@@ -152,7 +152,7 @@ class DishController extends Controller
         }
 
         $dish->save();
-        return redirect('/dishes')->with('info','Plato "' .$dish->name. '" actualizado con éxito  por '.auth()->user()->type.'.');
+        return redirect('/dishes')->with('info', $dish->name . ' actualizado con éxito  por '.auth()->user()->type.'.');
     }
 
     /**
@@ -171,7 +171,7 @@ class DishController extends Controller
             $admin=$autentificado->type=='admin';
             if($admin){
                 $dish->delete();                
-                return back()->with('warning','Plato "' .$dish->name. '" eliminado con éxito por '.auth()->user()->type.'.');
+                return back()->with('warning',' "' .$dish->name. '" eliminado con éxito por '.auth()->user()->type.'.');
             }
         }        
     }

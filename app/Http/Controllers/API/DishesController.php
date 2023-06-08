@@ -13,7 +13,7 @@ class DishesController extends Controller
 
     public function index() {
         $dishes = Dish::all();
-        return response()->json(['Platos' => $dishes->toArray()], $this->successStatus);
+        return response()->json(['dishes' => $dishes->toArray()], $this->successStatus);
     }
 
     /**

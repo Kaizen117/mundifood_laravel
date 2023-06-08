@@ -50,7 +50,7 @@
                         <td style="text-align: center; color: gray; width: 150px;">{{ $dishS->name }}</td>
                         <td style="text-align: center; color: gray; width: 200px;">{{ $dishS->description }}</td>
                         <td style="text-align: center; color: gray; width: 50px; font-weight: bold;">{{ $dishS->price }}€</td>                            
-                        @if($dishS->disponibility=0)
+                        @if($dishS->disponibility==0)
                             <td style="text-align: center; color: red; width: 100px; font-weight: bold;">
                                 No disponible
                             </td>

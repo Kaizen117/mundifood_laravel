@@ -34,7 +34,7 @@ Route::delete('/users/{id}', 'AdminController@destroy')->name('users.destroy');
 //Route::post('users/{username}/editProfile', 'UserController@store');
 //Route::get('users/{username}/edit', 'UserController@update');
 
-Route::get('dishes', 'DishController@index');
+Route::get('/dishes', 'DishController@index');
 Route::get('dishes/new', 'DishController@create');
 Route::post('dishes/confirm', 'DishController@store');
 Route::get('dishes/edit/{id}', 'DishController@edit');

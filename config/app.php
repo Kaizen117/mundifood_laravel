@@ -141,6 +141,8 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        
+        //Barryvdh\Cors\CorsServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,

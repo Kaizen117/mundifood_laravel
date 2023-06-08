@@ -23,14 +23,16 @@ class RegisterController extends Controller
             'username' => 'required|unique:users',
             'password' => 'required',
             'c_password' => 'required|same:password',
-            'type' => 'required',
-            'activated' => 'required',           
+            // 'type' => 'required',
+            // 'activated' => 'required',           
         ]);
         if($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
         }
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
+        $input['activated'] = 0; //false
+        $input['type'] = 'users';
         $user = User::create($input);
         $success['token'] = $user->createToken('Mundifood')->accessToken;
         $success['name'] = $user->name;
@@ -43,11 +45,37 @@ class RegisterController extends Controller
             $user = Auth::user();
             // Creamos un token de acceso para ese usuario
             $success['token'] = $user->createToken('Mundifood')->accessToken;
+            $success['user'] = $user;
             // Y lo devolvemos en el objeto 'json'
-            return response()->json(['success' => $success], $this->successStatus);
+            return response()->json(['data' => $success], $this->successStatus);
         }
         else {
             return response()->json(['error' => 'No estás autorizado'], 401);
         }
+    }    
+
+    public function logout(Request $request){//no funciona, corregir
+        $user = auth()->user();
+
+        if ($user) {
+            $user->tokens()->delete(); // Elimina todos los tokens de acceso del usuario
+            return response()->json(['message' => 'Logout satisfactorio'], 200);
+        } else {
+            return response()->json(['message' => 'Usuario no autenticado'], 401);
+        }
     }
+
+    // public function logout(Request $request){//no funciona, corregir
+    //     $request->user()->token()->revoke();
+    //     return response()->json(['message' => 'Usuario desconectado satisfactoriamente']);
+    // }
+
+    // public function logout(Request $request)//no funciona, corregir
+    // {
+    //     $user = Auth::user();
+    //     $user->tokens()->delete();
+
+    //     return response()->json(['message' => 'Logout satisfactorio'], 200);
+    // }
+
 }

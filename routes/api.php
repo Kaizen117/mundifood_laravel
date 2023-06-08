@@ -26,3 +26,17 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('tables', 'API\TablesController');
     Route::resource('reserves', 'API\ReservesController');
 });
+
+//users
+Route::get('/users', 'API\UserController@index');
+//id de un user
+Route::get('/users/{id}', 'API\UserController@show');
+
+//datos user autenticado
+Route::get('/userData', 'API\UserController@getUserAuthenticated');
+
+Route::put('/profile/{id}', 'API\UserController@update');
+Route::delete('user/delete/{id}', 'API\UserController@destroy');
+
+//platos
+Route::get('/dishes', 'API\DishesController@index');
