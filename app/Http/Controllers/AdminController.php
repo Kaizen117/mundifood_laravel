@@ -152,11 +152,11 @@ class AdminController extends Controller
         ]);
 
         $username=$request->username;
-        $password=Input::get('password');       
-        $hashed=Hash::make($password);
+        // $password=Input::get('password');       
+        // $hashed=Hash::make($password);
         
         $requestData=$request->all();
-        $requestData['password']=$hashed;
+        //$requestData['password']=$hashed;
         
         $user->update($requestData);
         return redirect('/users')->with('info', 'Usuario "' . $user->username . '" actualizado con éxito por ' . auth()->user()->type . '.');        

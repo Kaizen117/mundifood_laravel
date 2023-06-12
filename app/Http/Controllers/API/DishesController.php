@@ -16,6 +16,24 @@ class DishesController extends Controller
         return response()->json(['dishes' => $dishes->toArray()], $this->successStatus);
     }
 
+    public function getDishesByCategory() {
+        $ordenCategory = [
+            'Entrantes' => 1,
+            'Sopas' => 2,
+            'Carnes' => 3,
+            'Pescados' => 4,
+            'Bebidas' => 5,
+            'Postres' => 6,
+            'Vinos' => 7,
+            'Otros' => 8,
+        ];
+        $dishes = Dish::orderByRaw("FIELD(category, '" . implode("', '", array_keys($ordenCategory)) . "')")
+                      ->orderBy('id')
+                      ->get();
+        //$dishes = Dish::where('category', $category)->get();
+        return response()->json(['dishes' => $dishes->toArray()], $this->successStatus);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -30,10 +30,18 @@ class RegisterController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
         $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
+        //$input['password'] = bcrypt($input['password']);
+
+        $password=bcrypt($request->password);       
+
         $input['activated'] = 0; //false
         $input['type'] = 'users';
         $user = User::create($input);
+
+        if(isset($user)){
+            $user->password=$password;
+            $user->save();
+        }
         $success['token'] = $user->createToken('Mundifood')->accessToken;
         $success['name'] = $user->name;
         return response()->json(['success' => $success], $this->successStatus);
@@ -52,7 +60,7 @@ class RegisterController extends Controller
         else {
             return response()->json(['error' => 'No estás autorizado'], 401);
         }
-    }    
+    }
 
     public function logout(Request $request){//no funciona, corregir
         $user = auth()->user();
