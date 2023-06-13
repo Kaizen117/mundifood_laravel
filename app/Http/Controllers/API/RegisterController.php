@@ -62,7 +62,7 @@ class RegisterController extends Controller
         }
     }
 
-    public function logout(Request $request){//no funciona, corregir
+    public function logout(Request $request){
         $user = auth()->user();
 
         if ($user) {

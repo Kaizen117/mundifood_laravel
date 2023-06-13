@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Dish;
 use Validator;
@@ -33,6 +34,45 @@ class DishesController extends Controller
         //$dishes = Dish::where('category', $category)->get();
         return response()->json(['dishes' => $dishes->toArray()], $this->successStatus);
     }
+
+    public function getDishesByOneCategory($category) {
+        $dishes = Dish::where('category', $category)->get();
+        return response()->json(['dishes' => $dishes->toArray()], $this->successStatus);
+    }
+
+    public function getAllCategories(){
+        $categories = Dish::select('category')->distinct()->get();
+        return response()->json(['categories' => $categories->toArray()], $this->successStatus);
+    }
+
+    // public function getAssetImages(Request $request)
+    // {
+    //     // //$imagePath=public_path('images/dishes');
+    //     // $images=[];
+    //     // if (is_dir($imagePath)) {
+    //     //     $files=scandir($imagePath);
+    //     //     foreach ($files as $file) {
+    //     //         if ($file!=='.' && $file!=='..') {
+    //     //             $images[]=$file;
+    //     //         }
+    //     //     }
+    //     // }
+    //     // return response()->json(['images' => $images], $this->successStatus);
+    //     //--------------
+    //     $imagePath=public_path('assets/icons/imgs/dishes');
+    //     $images=[];
+
+    //     if (is_dir($imagePath)) {
+    //         $files=scandir($imagePath);
+            
+    //         foreach ($files as $file) {
+    //             if ($file !== '.' && $file !== '..') {
+    //                 $images[] = $file;
+    //             }
+    //         }
+    //     }
+    //     return response()->json(['images' => $images], $this->successStatus);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -77,7 +117,6 @@ class DishesController extends Controller
     }
 
     // public function update(Request $request, $id)
-
     public function update(Request $request, Dish $dish) {
         $input = $request->all();
         $validator = Validator::make($input, [
@@ -93,7 +132,7 @@ class DishesController extends Controller
         return response()->json(['Plato' => $dish->toArray()], $this->successStatus);
     }
     
-    //    public function destroy($id)
+    //public function destroy($id)
     public function destroy(Dish $dish) {
         $dish->delete();
         return response()->json(['Plato' => $dish->toArray()], $this->successStatus);
