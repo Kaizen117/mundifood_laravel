@@ -24,7 +24,7 @@ Route::middleware('auth:api')->group(function(){
     //Route::resource('dishes', 'API\DishesController');
     Route::resource('users', 'API\UserController');
     Route::resource('tables', 'API\TablesController');
-    Route::resource('reserves', 'API\ReservesController');
+    //Route::resource('reserves', 'API\ReservesController');
     Route::get('/userData', 'API\UserController@getUserAuthenticated');
 
     //users
@@ -44,8 +44,8 @@ Route::get('dishes/{category}', 'API\DishesController@getDishesByOneCategory');
 Route::get('categories', 'API\DishesController@getAllCategories');
 
 //imagenes
-Route::get('images/dishes', 'API\DishesController@getAssetImages');
-
+//Route::get('images/dishes', 'API\DishesController@getAssetImages');
 
 //Reservas
 Route::get('/reserves', 'API\ReservesController@index');
+Route::get('reservesUser', 'API\ReservesController@consultaReserves');

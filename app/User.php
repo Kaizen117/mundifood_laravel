@@ -29,5 +29,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function reserves()
+    {
+        return $this->hasMany(Reserve::class);
+    }
     
 }
