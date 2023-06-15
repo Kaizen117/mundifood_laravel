@@ -25,9 +25,11 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('users', 'API\UserController');
     Route::resource('tables', 'API\TablesController');
     //Route::resource('reserves', 'API\ReservesController');
+
+    //datos user logueado
     Route::get('/userData', 'API\UserController@getUserAuthenticated');
 
-    //users
+    //todos los users
     Route::get('/users', 'API\UserController@index');//duplicado
     //id de un user
     Route::get('/users/{id}', 'API\UserController@show');

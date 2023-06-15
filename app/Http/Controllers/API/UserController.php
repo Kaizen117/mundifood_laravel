@@ -46,28 +46,35 @@ class UserController extends Controller
     {
         $user= DB::table('users')->where('id', $id)->get();
         return response()->json(['user' => $user->toArray()], $this->successStatus);
-    }
-
-    // public function show($id) {
-    //     $user = User::find($id);
-    //     if (is_null($user)) {
-    //         return response()->json(['error' => $validator->errors()], 401);
-    //     }
-    //     return response()->json(['Usuario' => $user->toArray()], $this->successStatus);
-    // }
+    }   
 
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-        $request->validate([
+        $user = Auth::user();
+        $input = $request->all();
+        $validator = Validator::make($input, [
             'name' => 'nullable|string|max:25',
             'surname1' => 'nullable|string|max:30',
             'surname2' => 'nullable|string|max:30',
-            'telephone' => 'nullable|digits:9',
+            'telephone' => 'nullable|digits:9|unique:users,telephone,'.$user->id,
             'address' => 'nullable|string|max:150',
             'email' => 'nullable|string|email|max:255|unique:users,email,'.$user->id,
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'nullable|string|min:6|confirmed'/*,
+            'c_password' => 'nullable|string|min:6|same:password',*/
         ]);
+
+        if($validator->fails()){
+            return response()->json(['error' => $validator->errors()], 422);
+        }
+        // $request->validate([
+        //     'name' => 'nullable|string|max:25',
+        //     'surname1' => 'nullable|string|max:30',
+        //     'surname2' => 'nullable|string|max:30',
+        //     'telephone' => 'nullable|digits:9',
+        //     'address' => 'nullable|string|max:150',
+        //     'email' => 'nullable|string|email|max:255|unique:users,email,'.$user->id,
+        //     'password' => 'nullable|string|min:6|confirmed',
+        // ]);
 
         $user->update([
             'name' => $request->name,
@@ -78,7 +85,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => $request->password ? bcrypt($request->password) : $user->password,
         ]);    
-        return response()->json(['data' => 'Perfil actualizado satisfactoriamente.']);
+        return response()->json(['data' => 'Perfil actualizado satisfactoriamente.'], $this->successStatus);
     }
 
     public function destroy($id)
